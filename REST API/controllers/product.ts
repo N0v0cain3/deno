@@ -81,14 +81,49 @@ const addProduct = async (
 
 // update single product
 // PUT /api/v1/products/:id
-const updateProduct = ({ response }: { response: any }) => {
-  response.body = "update";
+const updateProduct = async (
+  { params, request, response }: {
+    request: any;
+    params: { id: string };
+    response: any;
+  },
+) => {
+  const product: Product | undefined = products.find((p) => p.id == params.id);
+
+  if (product) {
+    const body = await request.body();
+
+    const updateData: { name?: string; description?: string; price?: number } =
+      body.value;
+
+    products = products.map((p) =>
+      p.id === params.id ? { ...p, ...updateData } : p
+    );
+    response.status = 200,
+      response.body = {
+        success: true,
+        data: products,
+      };
+  } else {
+    response.status = 404;
+    response.body = {
+      success: false,
+      msg: "No product found",
+    };
+  }
 };
 
 // delete single product
 // DELETE /api/v1/products/;id
-const deleteProduct = ({ response }: { response: any }) => {
-  response.body = "delete";
+const deleteProduct = (
+  { params, response }: { params: { id: string }; response: any },
+) => {
+  products = products.filter((p) => p.id !== params.id);
+  response.status = 200;
+  response.body = {
+    success: true,
+    msg: "Product Removed",
+  };
 };
 
 export { getProducts, getProduct, updateProduct, deleteProduct, addProduct };
