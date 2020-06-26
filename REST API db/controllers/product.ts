@@ -208,6 +208,36 @@ const updateProduct = async (
 const deleteProduct = async (
   { params, response }: { params: { id: string }; response: any },
 ) => {
+  await getProduct({ params: { "id": params.id }, response });
+  if (response.status === 404) {
+    response.body = {
+      success: false,
+      message: response.body.message,
+    };
+  } else {
+    try {
+      await client.connect();
+
+      const result = await client.query(
+        "DELETE FROM products where id=$1",
+        params.id,
+      );
+
+      response.status = 204;
+      response.body = {
+        success: true,
+        msg: "DELETED!!",
+      };
+    } catch (error) {
+      response.status = 500;
+      response.body = {
+        success: false,
+        msg: error.toString(),
+      };
+    } finally {
+      await client.end();
+    }
+  }
 };
 
 export { getProducts, getProduct, updateProduct, deleteProduct, addProduct };
