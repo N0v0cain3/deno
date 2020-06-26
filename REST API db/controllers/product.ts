@@ -157,6 +157,15 @@ const updateProduct = async (
     response: any;
   },
 ) => {
+  await getProduct({ params: { "id": params.id }, response });
+  if (response.status === 404) {
+    response.body = {
+      success: false,
+      message: response.body.message,
+    };
+  }
+  response.status = 404;
+  return;
 };
 
 // delete single product
