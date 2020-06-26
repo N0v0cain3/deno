@@ -205,15 +205,9 @@ const updateProduct = async (
 
 // delete single product
 // DELETE /api/v1/products/;id
-const deleteProduct = (
+const deleteProduct = async (
   { params, response }: { params: { id: string }; response: any },
 ) => {
-  products = products.filter((p) => p.id !== params.id);
-  response.status = 200;
-  response.body = {
-    success: true,
-    msg: "Product Removed",
-  };
 };
 
 export { getProducts, getProduct, updateProduct, deleteProduct, addProduct };
