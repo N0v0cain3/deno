@@ -163,6 +163,41 @@ const updateProduct = async (
       success: false,
       message: response.body.message,
     };
+  } else {
+    const body = await request.body();
+    const product = body.value;
+    if (!request.hasBody) {
+      response.status = 400;
+      response.body = {
+        success: false,
+        msg: "No data",
+      };
+    } else {
+      try {
+        await client.connect();
+        const result = await client.query(
+          "UPDATE products SET name=$1,description=$2,price=$3 WHERE id=$4",
+          product.name,
+          product.description,
+          product.price,
+          params.id,
+        );
+
+        response.status = 200;
+        response.body = {
+          success: true,
+          data: product,
+        };
+      } catch (err) {
+        response.status = 500;
+        response.body = {
+          success: false,
+          message: err.toString(),
+        };
+      } finally {
+        await client.end();
+      }
+    }
   }
   response.status = 404;
   return;
