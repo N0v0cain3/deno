@@ -8,8 +8,5 @@
 				"PORT": "8000"
 			}
 		}
-	},
-	"logger": {
-		"debug": true
 	}
 }
