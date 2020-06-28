@@ -1,61 +1,46 @@
-### Deno
+# Deno
+
+<p align="center"><img src="https://denolib.github.io/high-res-deno-logo/deno_hr_circle.png" alt="logo" width="300"/></a>
+</p>
+
+# Deno and Postgres
+> Using Sql db to perform CRUD operations is deno.
 
 
-# First deno API
+---
+[![DOCS](https://img.shields.io/badge/Documentation-see%20docs-green?style=flat-square&logo=appveyor)](INSERT_LINK_FOR_DOCS_HERE) 
+  [![UI ](https://img.shields.io/badge/User%20Interface-Link%20to%20UI-orange?style=flat-square&logo=appveyor)](INSERT_UI_LINK_HERE)
 
-CRUD operations
 
-## Getting Started
 
-# deno_install
 
-**One-line commands to install Deno on your system.**
+## Features
 
-[![Build Status](https://github.com/denoland/deno_install/workflows/ci/badge.svg?branch=master)](https://github.com/denoland/deno_install/actions)
 
-## Install Latest Version
 
-**With Shell:**
 
-```sh
-curl -fsSL https://deno.land/x/install/install.sh | sh
+
+## Screenshots
+
+
+## Instructions to run
+
+```
+$ git clone https://github.com/N0v0cain3/<Project>
+$ cd <Project>
+$ deno run server.ts
+  or
+$ denon start
 ```
 
-**With PowerShell:**
-
-```powershell
-iwr https://deno.land/x/install/install.ps1 -useb | iex
-```
-
-## Install Specific Version
-
-**With Shell:**
-
-```sh
-curl -fsSL https://deno.land/x/install/install.sh | sh -s v1.0.0
-```
-
-**With PowerShell:**
-
-```powershell
-$v="1.0.0"; iwr https://deno.land/x/install/install.ps1 -useb | iex
-```
+## Contributors
+- <a href="https://github.com/N0v0cain3">Shivam Mehta</a>
 
 
-**Run**
-## Clone the repo
-```
-cd REST API
-denon start
-```
+## License
 
+[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
-
-
-## Authors
-
-* **Shivam Mehta** - (https://github.com/N0v0cain3)
-
-## Acknowledgments
-
-* Traversity Media
+<p align="center">
+	With :heart: by <a href="http://www.github.com/N0v0cain3" target="_blank">Shivam Mehta</a>
+</p>
