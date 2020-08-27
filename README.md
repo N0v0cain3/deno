@@ -26,8 +26,8 @@
 ## Instructions to run
 
 ```
-$ git clone https://github.com/N0v0cain3/<Project>
-$ cd <Project>
+$ git clone https://github.com/N0v0cain3/deno.git
+$ cd deno
 $ deno run server.ts
   or
 $ denon start
